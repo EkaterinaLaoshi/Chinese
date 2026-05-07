@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Китайский: Приёмы пищи и время | Chinese Meals & Time</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdf6f0;
+            --card-bg: #ffffff;
+            --text: #3d2c2a;
+            --text-light: #6b5b58;
+            --accent-breakfast: #f4855c;
+            --accent-lunch: #f5b042;
+            --accent-dinner: #7c5cbf;
+            --accent-time: #4a90c4;
+            --correct: #4caf84;
+            --incorrect: #e0556a;
+            --gold: #f0c040;
+            --shadow-sm: 0 2px 8px rgba(61, 44, 42, 0.06);
+            --shadow-md: 0 6px 24px rgba(61, 44, 42, 0.10);
+            --shadow-lg: 0 16px 48px rgba(61, 44, 42, 0.14);
+            --shadow-glow: 0 0 40px rgba(244, 133, 92, 0.25);
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ ANIMATED BACKGROUND ORBS ============ */
+        .bg-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: floatOrb 18s infinite ease-in-out;
+        }
+        .bg-orb:nth-child(1) {
+            width: 420px;
+            height: 420px;
+            background: #ffe0d3;
+            top: -8%;
+            left: -5%;
+            animation-delay: 0s;
+            animation-duration: 20s;
+        }
+        .bg-orb:nth-child(2) {
+            width: 350px;
+            height: 350px;
+            background: #fef3d6;
+            top: 55%;
+            right: -10%;
+            animation-delay: -5s;
+            animation-duration: 22s;
+        }
+        .bg-orb:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            background: #e8dff5;
+            bottom: -12%;
+            left: 25%;
+            animation-delay: -10s;
+            animation-duration: 19s;
+        }
+        .bg-orb:nth-child(4) {
+            width: 260px;
+            height: 260px;
+            background: #d6eaf8;
+            top: 30%;
+            left: 55%;
+            animation-delay: -14s;
+            animation-duration: 24s;
+        }
+
+        @keyframes floatOrb {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            20% {
+                transform: translate(50px, -40px) scale(1.08);
+            }
+            40% {
+                transform: translate(-30px, -70px) scale(0.93);
+            }
+            60% {
+                transform: translate(-60px, 20px) scale(1.05);
+            }
+            80% {
+                transform: translate(35px, 50px) scale(0.96);
+            }
+        }
+
+        /* ============ MAIN CONTAINER ============ */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 24px 60px;
+        }
+
+        /* ============ NAVIGATION ============ */
+        .nav-bar {
+            position: sticky;
+            top: 16px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-xl);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 28px;
+            transition: var(--transition);
+        }
+        .nav-bar:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--accent-breakfast);
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+        .nav-logo span {
+            color: var(--text);
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 8px 15px;
+            border-radius: 50px;
+            color: var(--text-light);
+            transition: var(--transition);
+            white-space: nowrap;
+            background: transparent;
+            border: 2px solid transparent;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-breakfast);
+            background: #fff5f1;
+            border-color: #fdd9cc;
+        }
+        .nav-score-badge {
+            background: linear-gradient(135deg, #fff7e6, #ffe8cc);
+            color: #c7852a;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            border: 2px solid #f5d5a0;
+            transition: var(--transition);
+            animation: pulseBadge 2.5s infinite ease-in-out;
+        }
+        @keyframes pulseBadge {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(240, 180, 60, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 14px rgba(240, 180, 60, 0);
+            }
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            text-align: center;
+            padding: 40px 20px 30px;
+            animation: fadeInUp 0.7s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-emoji-row {
+            font-size: 3rem;
+            letter-spacing: 8px;
+            animation: bounceEmojis 3s infinite ease-in-out;
+        }
+        @keyframes bounceEmojis {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-16px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            70% {
+                transform: translateY(-8px);
+            }
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin: 10px 0 6px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #f4855c, #d4744b, #f5b042);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            font-weight: 500;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .hero-chinese {
+            font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #c77840;
+            margin-top: 10px;
+            letter-spacing: 4px;
+        }
+
+        /* ============ SECTION TITLES ============ */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-align: center;
+            margin: 48px 0 8px;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            border-radius: 2px;
+            margin: 0 auto 28px;
+            background: linear-gradient(90deg, var(--accent-breakfast), var(--accent-lunch));
+        }
+
+        /* ============ VOCAB CARDS GRID ============ */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .vocab-card {
+            perspective: 800px;
+            height: 180px;
+            cursor: pointer;
+        }
+        .vocab-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .vocab-card.flipped .vocab-card-inner {
+            transform: rotateY(180deg);
+        }
+        .vocab-card-front,
+        .vocab-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .vocab-card-front {
+            background: #fff;
+            border: 2px solid #f0e8e3;
+        }
+        .vocab-card-back {
+            background: linear-gradient(135deg, #fffdf9, #fff8f2);
+            border: 2px solid #f5d5a0;
+            transform: rotateY(180deg);
+        }
+        .vocab-card:hover .vocab-card-front {
+            box-shadow: var(--shadow-md);
+            border-color: #e8d5c8;
+            transform: scale(1.03);
+        }
+        .vocab-card:hover .vocab-card-back {
+            box-shadow: var(--shadow-md);
+        }
+        .vocab-char {
+            font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #5c3d2e;
+            line-height: 1;
+        }
+        .vocab-hint {
+            font-size: 0.78rem;
+            color: #b8a095;
+            margin-top: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .vocab-pinyin {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #c77840;
+            font-style: italic;
+        }
+        .vocab-meaning {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #5c3d2e;
+            margin-top: 4px;
+        }
+        .vocab-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 50px;
+            margin-top: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .tag-breakfast {
+            background: #fff0ea;
+            color: #e07a50;
+        }
+        .tag-lunch {
+            background: #fff8ea;
+            color: #d4952a;
+        }
+        .tag-dinner {
+            background: #f3edfa;
+            color: #6b4da8;
+        }
+        .tag-time {
+            background: #eaf4fb;
+            color: #3d7eb5;
+        }
+
+        /* ============ EXERCISE PANELS ============ */
+        .exercise-panel {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #f0e8e3;
+            transition: var(--transition);
+            animation: fadeInUp 0.5s ease-out;
+        }
+        .exercise-panel:hover {
+            box-shadow: var(--shadow-md);
+        }
+        .exercise-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .exercise-badge {
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+        }
+        .badge-recognition {
+            background: #fff0ea;
+            color: #e07a50;
+        }
+        .badge-clock {
+            background: #eaf4fb;
+            color: #3d7eb5;
+        }
+        .badge-meal {
+            background: #f3edfa;
+            color: #6b4da8;
+        }
+        .exercise-question {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        .exercise-prompt {
+            text-align: center;
+            margin: 16px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* ============ CHARACTER DISPLAY (large) ============ */
+        .char-display {
+            text-align: center;
+            padding: 28px;
+            background: linear-gradient(135deg, #fffdf9, #fef9f4);
+            border-radius: var(--radius-md);
+            border: 2px dashed #e8d5c8;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        .char-display .big-char {
+            font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: #4a3025;
+            line-height: 1;
+            animation: gentlePulse 3s infinite ease-in-out;
+        }
+        @keyframes gentlePulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.04);
+            }
+        }
+        .char-display .char-label {
+            font-size: 0.85rem;
+            color: #b8a095;
+            margin-top: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ============ OPTIONS GRID ============ */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        @media (max-width: 500px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            .vocab-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-bar {
+                padding: 10px 14px;
+                gap: 6px;
+            }
+            .nav-link {
+                padding: 6px 10px;
+                font-size: 0.75rem;
+            }
+        }
+        .option-btn {
+            padding: 16px 18px;
+            border-radius: var(--radius-sm);
+            border: 2px solid #e8ddd6;
+            background: #fffdfb;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            text-align: center;
+            font-family: inherit;
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+        }
+        .option-btn:hover {
+            border-color: #d4beb0;
+            background: #fffaf7;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        .option-btn:active {
+            transform: scale(0.97);
+        }
+        .option-btn.correct-choice {
+            border-color: var(--correct) !important;
+            background: #eafaf3 !important;
+            animation: popCorrect 0.5s var(--bounce);
+            box-shadow: 0 0 24px rgba(76, 175, 132, 0.3) !important;
+        }
+        .option-btn.wrong-choice {
+            border-color: var(--incorrect) !important;
+            background: #fef2f3 !important;
+            animation: shake 0.5s ease;
+            box-shadow: 0 0 20px rgba(224, 85, 106, 0.25) !important;
+        }
+        @keyframes popCorrect {
+            0% {
+                transform: scale(1);
+            }
+            40% {
+                transform: scale(1.06);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            15% {
+                transform: translateX(-8px);
+            }
+            30% {
+                transform: translateX(8px);
+            }
+            45% {
+                transform: translateX(-6px);
+            }
+            60% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-3px);
+            }
+            90% {
+                transform: translateX(2px);
+            }
+        }
+
+        /* ============ SVG CLOCK ============ */
+        .clock-container {
+            display: flex;
+            justify-content: center;
+            margin: 16px 0 20px;
+        }
+        .clock-svg {
+            width: 180px;
+            height: 180px;
+            filter: drop-shadow(0 8px 20px rgba(61, 44, 42, 0.12));
+            transition: var(--transition);
+        }
+        .clock-svg .hand-hour {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .clock-svg .hand-minute {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ============ FEEDBACK TOAST ============ */
+        .feedback-toast {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-120px);
+            z-index: 200;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: var(--shadow-lg);
+            white-space: nowrap;
+        }
+        .feedback-toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+        .feedback-toast.success {
+            background: #eafaf3;
+            color: #2d7d56;
+            border: 2px solid #b7e4cf;
+        }
+        .feedback-toast.error {
+            background: #fef2f3;
+            color: #b83a4a;
+            border: 2px solid #f5c6cc;
+        }
+
+        /* ============ STREAK INDICATOR ============ */
+        .streak-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 14px 0;
+            font-weight: 700;
+            font-size: 1rem;
+            min-height: 32px;
+        }
+        .streak-fire {
+            font-size: 1.5rem;
+            animation: fireBounce 0.6s infinite ease-in-out;
+        }
+        @keyframes fireBounce {
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-6px) scale(1.2);
+            }
+        }
+        .streak-text {
+            color: #e07a50;
+            font-weight: 800;
+        }
+
+        /* ============ BUTTONS ============ */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-family: inherit;
+            letter-spacing: 0.3px;
+            text-align: center;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #f4855c, #e07550);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(244, 133, 92, 0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(244, 133, 92, 0.45);
+        }
+        .btn-primary:active {
+            transform: scale(0.95);
+        }
+        .btn-outline {
+            background: #fff;
+            color: var(--accent-breakfast);
+            border: 2px solid #f5c9b5;
+        }
+        .btn-outline:hover {
+            background: #fffaf7;
+            border-color: #f4855c;
+        }
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+        }
+        .btn-center {
+            display: block;
+            margin: 16px auto 0;
+        }
+
+        /* ============ PARTICLES ============ */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 190;
+            font-size: 1.6rem;
+            animation: particleFly 0.9s ease-out forwards;
+            font-weight: bold;
+        }
+        @keyframes particleFly {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--dx), var(--dy)) scale(0.2) rotate(var(--rot));
+            }
+        }
+
+        /* ============ PROGRESS DOTS ============ */
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 12px 0;
+        }
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e0d5cd;
+            transition: var(--transition);
+        }
+        .progress-dot.done {
+            background: var(--correct);
+            box-shadow: 0 0 8px rgba(76, 175, 132, 0.4);
+        }
+        .progress-dot.active {
+            background: var(--accent-breakfast);
+            animation: dotPulse 1s infinite;
+        }
+        @keyframes dotPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(244, 133, 92, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(244, 133, 92, 0);
+            }
+        }
+
+        /* ============ FOOTER ============ */
+        .footer-note {
+            text-align: center;
+            padding: 30px 0 10px;
+            color: #c0b0a5;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 640px) {
+            .vocab-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            .vocab-card {
+                height: 140px;
+            }
+            .vocab-char {
+                font-size: 2rem;
+            }
+            .vocab-pinyin {
+                font-size: 1rem;
+            }
+            .vocab-meaning {
+                font-size: 0.8rem;
+            }
+            .char-display .big-char {
+                font-size: 3.5rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero-emoji-row {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+            .clock-svg {
+                width: 140px;
+                height: 140px;
+            }
+            .exercise-panel {
+                padding: 18px 14px;
+            }
+            .option-btn {
+                padding: 12px 14px;
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 380px) {
+            .vocab-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .vocab-card {
+                height: 120px;
+            }
+            .vocab-char {
+                font-size: 1.7rem;
+            }
+            .nav-links {
+                gap: 3px;
+            }
+            .nav-link {
+                padding: 5px 8px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND ORBS -->
+    <div class="bg-orbs">
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+    </div>
+
+    <!-- FEEDBACK TOAST -->
+    <div class="feedback-toast" id="feedbackToast"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+
+        <!-- NAVIGATION -->
+        <nav class="nav-bar" id="navbar">
+            <div class="nav-logo">🥢 <span>Chinese</span>Meals</div>
+            <div class="nav-links">
+                <a href="#vocab" class="nav-link">Слова</a>
+                <a href="#ex1" class="nav-link">Иероглифы</a>
+                <a href="#ex2" class="nav-link">Часы</a>
+                <a href="#ex3" class="nav-link">Приёмы</a>
+            </div>
+            <div class="nav-score-badge" id="totalScoreBadge">⭐ 0</div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-emoji-row">🌅🍚 &nbsp;☀️🍜 &nbsp;🌙🥟</div>
+            <h1>Приёмы пищи & Время</h1>
+            <p class="hero-subtitle">Отработка лексики: завтрак, обед, ужин и время на часах — для начинающих изучать китайский</p>
+            <p class="hero-chinese">早饭 · 午饭 · 晚饭 · 时间</p>
+        </section>
+
+        <!-- VOCABULARY CARDS -->
+        <h2 class="section-title" id="vocab">📚 Карточки лексики</h2>
+        <p class="section-subtitle">Нажми на карточку, чтобы увидеть перевод и пиньинь</p>
+        <div class="section-divider"></div>
+        <div class="vocab-grid" id="vocabGrid">
+            <!-- Cards generated by JS -->
+        </div>
+
+        <!-- EXERCISE 1: Character Recognition -->
+        <div class="exercise-panel" id="ex1">
+            <div class="exercise-header">
+                <span class="exercise-badge badge-recognition">Упражнение 1</span>
+                <span class="exercise-question">Узнай иероглиф</span>
+            </div>
+            <p class="exercise-prompt">Какой перевод у этого иероглифа?</p>
+            <div class="char-display">
+                <div class="big-char" id="ex1Char">饭</div>
+                <div class="char-label">выберите правильное значение</div>
+            </div>
+            <div class="options-grid" id="ex1Options"></div>
+            <div class="streak-bar" id="ex1Streak"></div>
+            <div class="progress-dots" id="ex1Dots"></div>
+            <button class="btn btn-outline btn-sm btn-center" id="ex1Next" style="display:none;">Следующий вопрос →</button>
+        </div>
+
+        <!-- EXERCISE 2: Clock Reading -->
+        <div class="exercise-panel" id="ex2">
+            <div class="exercise-header">
+                <span class="exercise-badge badge-clock">Упражнение 2</span>
+                <span class="exercise-question">Время на часах</span>
+            </div>
+            <p class="exercise-prompt">Который час показывают часы? Выбери правильный ответ на китайском:</p>
+            <div class="clock-container">
+                <svg class="clock-svg" id="clockSvg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Clock face -->
+                    <circle cx="150" cy="150" r="140" fill="#fffdfb" stroke="#d4beb0" stroke-width="6"/>
+                    <circle cx="150" cy="150" r="132" fill="none" stroke="#f0e5db" stroke-width="1.5"/>
+                    <!-- Hour markers -->
+                    <g id="clockMarkers"></g>
+                    <!-- Hour numbers -->
+                    <g id="clockNumbers" font-family="'Nunito','Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#4a3025" text-anchor="middle" dominant-baseline="central"></g>
+                    <!-- Hands group -->
+                    <g transform="translate(150,150)">
+                        <rect class="hand-hour" id="handHour" x="-5" y="-85" width="10" height="85" rx="5" fill="#3d2c2a" transform="rotate(0)"/>
+                        <rect class="hand-minute" id="handMinute" x="-3.5" y="-115" width="7" height="115" rx="3.5" fill="#6b5b58" transform="rotate(0)"/>
+                        <circle cx="0" cy="0" r="9" fill="#f4855c"/>
+                        <circle cx="0" cy="0" r="4" fill="#fff"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="options-grid" id="ex2Options"></div>
+            <div class="streak-bar" id="ex2Streak"></div>
+            <div class="progress-dots" id="ex2Dots"></div>
+            <button class="btn btn-outline btn-sm btn-center" id="ex2Next" style="display:none;">Следующий вопрос →</button>
+        </div>
+
+        <!-- EXERCISE 3: Meal-Time Matching -->
+        <div class="exercise-panel" id="ex3">
+            <div class="exercise-header">
+                <span class="exercise-badge badge-meal">Упражнение 3</span>
+                <span class="exercise-question">Приём пищи и время</span>
+            </div>
+            <p class="exercise-prompt" id="ex3Prompt">Посмотри на время. Какой приём пищи обычно бывает в это время?</p>
+            <div class="clock-container">
+                <svg class="clock-svg" id="clockSvg2" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="150" cy="150" r="140" fill="#fffdfb" stroke="#c8b8e8" stroke-width="6"/>
+                    <circle cx="150" cy="150" r="132" fill="none" stroke="#e8dff5" stroke-width="1.5"/>
+                    <g id="clockMarkers2"></g>
+                    <g id="clockNumbers2" font-family="'Nunito','Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#4a3025" text-anchor="middle" dominant-baseline="central"></g>
+                    <g transform="translate(150,150)">
+                        <rect class="hand-hour" id="handHour2" x="-5" y="-85" width="10" height="85" rx="5" fill="#3d2c2a" transform="rotate(0)"/>
+                        <rect class="hand-minute" id="handMinute2" x="-3.5" y="-115" width="7" height="115" rx="3.5" fill="#6b5b58" transform="rotate(0)"/>
+                        <circle cx="0" cy="0" r="9" fill="#7c5cbf"/>
+                        <circle cx="0" cy="0" r="4" fill="#fff"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="options-grid" id="ex3Options"></div>
+            <div class="streak-bar" id="ex3Streak"></div>
+            <div class="progress-dots" id="ex3Dots"></div>
+            <button class="btn btn-outline btn-sm btn-center" id="ex3Next" style="display:none;">Следующий вопрос →</button>
+        </div>
+
+        <!-- FOOTER -->
+        <p class="footer-note">🎓 Практикуйся каждый день — иероглифы запомнятся легко! &nbsp;|&nbsp; Готово для GitHub Pages</p>
+    </div>
+
+    <script>
+        (function() {
+            // ============ DATA ============
+            const vocabData = [
+                { char: '早饭', pinyin: 'zǎofàn', meaning: 'завтрак', tag: 'breakfast', tagLabel: 'завтрак',
+                    emoji: '🌅' },
+                { char: '午饭', pinyin: 'wǔfàn', meaning: 'обед', tag: 'lunch', tagLabel: 'обед', emoji: '☀️' },
+                { char: '晚饭', pinyin: 'wǎnfàn', meaning: 'ужин', tag: 'dinner', tagLabel: 'ужин', emoji: '🌙' },
+                { char: '吃饭', pinyin: 'chīfàn', meaning: 'есть / кушать', tag: 'general', tagLabel: 'глагол',
+                emoji: '🍽️' },
+                { char: '点', pinyin: 'diǎn', meaning: 'час (точка)', tag: 'time', tagLabel: 'время', emoji: '🕐' },
+                { char: '分', pinyin: 'fēn', meaning: 'минута', tag: 'time', tagLabel: 'время', emoji: '⏱️' },
+                { char: '半', pinyin: 'bàn', meaning: 'половина', tag: 'time', tagLabel: 'время', emoji: '🕧' },
+                { char: '刻', pinyin: 'kè', meaning: 'четверть', tag: 'time', tagLabel: 'время', emoji: '🕒' },
+                { char: '现在', pinyin: 'xiànzài', meaning: 'сейчас', tag: 'time', tagLabel: 'время', emoji: '🕰️' },
+                { char: '几', pinyin: 'jǐ', meaning: 'сколько', tag: 'time', tagLabel: 'вопрос', emoji: '❓' },
+                { char: '早上', pinyin: 'zǎoshang', meaning: 'утро', tag: 'time', tagLabel: 'время', emoji: '🌄' },
+                { char: '中午', pinyin: 'zhōngwǔ', meaning: 'полдень', tag: 'time', tagLabel: 'время', emoji: '🕛' },
+                { char: '晚上', pinyin: 'wǎnshang', meaning: 'вечер', tag: 'time', tagLabel: 'время', emoji: '🌆' },
+                { char: '时间', pinyin: 'shíjiān', meaning: 'время', tag: 'time', tagLabel: 'общее', emoji: '⌛' },
+            ];
+
+            const tagClassMap = {
+                'breakfast': 'tag-breakfast',
+                'lunch': 'tag-lunch',
+                'dinner': 'tag-dinner',
+                'time': 'tag-time',
+                'general': 'tag-time',
+            };
+
+            // ============ GLOBAL STATE ============
+            let totalScore = 0;
+            let ex1Streak = 0,
+                ex1BestStreak = 0;
+            let ex2Streak = 0,
+                ex2BestStreak = 0;
+            let ex3Streak = 0,
+                ex3BestStreak = 0;
+            let ex1Locked = false,
+                ex2Locked = false,
+                ex3Locked = false;
+            let ex1QCount = 0,
+                ex2QCount = 0,
+                ex3QCount = 0;
+            const QUESTIONS_PER_ROUND = 6;
+
+            // ============ DOM REFS ============
+            const totalScoreBadge = document.getElementById('totalScoreBadge');
+            const feedbackToast = document.getElementById('feedbackToast');
+            let toastTimeout;
+
+            // ============ FUNCTIONS ============
+            function updateTotalScore() {
+                totalScoreBadge.textContent = '⭐ ' + totalScore;
+                // Animate
+                totalScoreBadge.style.transform = 'scale(1.15)';
+                setTimeout(() => { totalScoreBadge.style.transform = 'scale(1)'; }, 150);
+            }
+
+            function showToast(message, type) {
+                clearTimeout(toastTimeout);
+                feedbackToast.textContent = message;
+                feedbackToast.className = 'feedback-toast ' + type + ' show';
+                toastTimeout = setTimeout(() => {
+                    feedbackToast.classList.remove('show');
+                }, 1800);
+            }
+
+            function spawnParticles(x, y, count) {
+                const emojis = ['⭐', '✨', '🎉', '💫', '🌟', '🔥', '💯', '🎯'];
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('span');
+                    particle.className = 'particle';
+                    particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 40 + Math.random() * 80;
+                    particle.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
+                    particle.style.setProperty('--dy', Math.sin(angle) * distance - 30 - Math.random() * 50 + 'px');
+                    particle.style.setProperty('--rot', (Math.random() - 0.5) * 720 + 'deg');
+                    document.body.appendChild(particle);
+                    particle.addEventListener('animationend', () => particle.remove());
+                }
+            }
+
+            function getClickPosition(e) {
+                return { x: e.clientX || e.pageX || 200, y: e.clientY || e.pageY || 300 };
+            }
+
+            // ============ BUILD VOCAB CARDS ============
+            function buildVocabCards() {
+                const grid = document.getElementById('vocabGrid');
+                grid.innerHTML = '';
+                vocabData.forEach((v, i) => {
+                    const card = document.createElement('div');
+                    card.className = 'vocab-card';
+                    card.innerHTML = `
+                <div class="vocab-card-inner">
+                  <div class="vocab-card-front">
+                    <span class="vocab-char">${v.char}</span>
+                    <span class="vocab-hint">нажми ↑</span>
+                  </div>
+                  <div class="vocab-card-back">
+                    <span class="vocab-pinyin">${v.pinyin}</span>
+                    <span class="vocab-meaning">${v.meaning}</span>
+                    <span class="vocab-tag ${tagClassMap[v.tag] || 'tag-time'}">${v.tagLabel}</span>
+                  </div>
+                </div>`;
+                    card.addEventListener('click', () => {
+                        card.classList.toggle('flipped');
+                    });
+                    grid.appendChild(card);
+                });
+            }
+
+            // ============ BUILD CLOCK MARKERS & NUMBERS ============
+            function buildClockFace(markersId, numbersId) {
+                const markersGroup = document.getElementById(markersId);
+                const numbersGroup = document.getElementById(numbersId);
+                if (!markersGroup || !numbersGroup) return;
+                markersGroup.innerHTML = '';
+                numbersGroup.innerHTML = '';
+                const cx = 150,
+                    cy = 150,
+                    r = 130;
+                for (let h = 1; h <= 12; h++) {
+                    const angle = (h * 30 - 90) * (Math.PI / 180);
+                    // Hour marker (thicker)
+                    const mx = cx + r * Math.cos(angle);
+                    const my = cy + r * Math.sin(angle);
+                    const innerX = cx + (r - 14) * Math.cos(angle);
+                    const innerY = cy + (r - 14) * Math.sin(angle);
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', innerX);
+                    line.setAttribute('y1', innerY);
+                    line.setAttribute('x2', mx);
+                    line.setAttribute('y2', my);
+                    line.setAttribute('stroke', '#b8a095');
+                    line.setAttribute('stroke-width', '3');
+                    line.setAttribute('stroke-linecap', 'round');
+                    markersGroup.appendChild(line);
+                    // Number
+                    const numX = cx + (r - 28) * Math.cos(angle);
+                    const numY = cy + (r - 28) * Math.sin(angle);
+                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    text.setAttribute('x', numX);
+                    text.setAttribute('y', numY);
+                    text.textContent = h;
+                    numbersGroup.appendChild(text);
+                }
+                // Minute tick marks
+                for (let m = 0; m < 60; m++) {
+                    if (m % 5 === 0) continue; // skip hour positions
+                    const angle = (m * 6 - 90) * (Math.PI / 180);
+                    const outerX = cx + r * Math.cos(angle);
+                    const outerY = cy + r * Math.sin(angle);
+                    const innerX = cx + (r - 7) * Math.cos(angle);
+                    const innerY = cy + (r - 7) * Math.sin(angle);
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', innerX);
+                    line.setAttribute('y1', innerY);
+                    line.setAttribute('x2', outerX);
+                    line.setAttribute('y2', outerY);
+                    line.setAttribute('stroke', '#d4c8bf');
+                    line.setAttribute('stroke-width', '1.2');
+                    line.setAttribute('stroke-linecap', 'round');
+                    markersGroup.appendChild(line);
+                }
+            }
+
+            function setClockHands(hourHandId, minuteHandId, hours, minutes) {
+                const hourHand = document.getElementById(hourHandId);
+                const minuteHand = document.getElementById(minuteHandId);
+                if (!hourHand || !minuteHand) return;
+                const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+                const minuteDeg = minutes * 6;
+                hourHand.setAttribute('transform', `rotate(${hourDeg})`);
+                minuteHand.setAttribute('transform', `rotate(${minuteDeg})`);
+            }
+
+            // ============ SHUFFLE HELPER ============
+            function shuffle(arr) {
+                const a = [...arr];
+                for (let i = a.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [a[i], a[j]] = [a[j], a[i]];
+                }
+                return a;
+            }
+
+            // ============ EXERCISE 1: CHARACTER RECOGNITION ============
+            const ex1Chars = [
+                { char: '早饭', meaning: 'завтрак' },
+                { char: '午饭', meaning: 'обед' },
+                { char: '晚饭', meaning: 'ужин' },
+                { char: '吃饭', meaning: 'есть / кушать' },
+                { char: '点', meaning: 'час (точка)' },
+                { char: '分', meaning: 'минута' },
+                { char: '半', meaning: 'половина' },
+                { char: '刻', meaning: 'четверть' },
+                { char: '现在', meaning: 'сейчас' },
+                { char: '几', meaning: 'сколько' },
+                { char: '早上', meaning: 'утро' },
+                { char: '中午', meaning: 'полдень' },
+                { char: '晚上', meaning: 'вечер' },
+                { char: '时间', meaning: 'время' },
+            ];
+            const allMeanings = [...new Set(ex1Chars.map(c => c.meaning))];
+
+            function generateEx1Question() {
+                const correct = ex1Chars[Math.floor(Math.random() * ex1Chars.length)];
+                let distractors = allMeanings.filter(m => m !== correct.meaning);
+                distractors = shuffle(distractors).slice(0, 3);
+                const options = shuffle([correct.meaning, ...distractors]);
+                return { char: correct.char, correctMeaning: correct.meaning, options };
+            }
+
+            let currentEx1 = null;
+
+            function renderEx1() {
+                ex1Locked = false;
+                currentEx1 = generateEx1Question();
+                document.getElementById('ex1Char').textContent = currentEx1.char;
+                const optsContainer = document.getElementById('ex1Options');
+                optsContainer.innerHTML = '';
+                currentEx1.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.textContent = opt;
+                    btn.addEventListener('click', (e) => handleEx1Answer(opt, btn, e));
+                    optsContainer.appendChild(btn);
+                });
+                document.getElementById('ex1Next').style.display = 'none';
+                document.getElementById('ex1Streak').innerHTML = '';
+                updateEx1Dots();
+            }
+
+            function handleEx1Answer(selected, btnEl, event) {
+                if (ex1Locked) return;
+                ex1Locked = true;
+                ex1QCount++;
+                const allBtns = document.querySelectorAll('#ex1Options .option-btn');
+                const isCorrect = selected === currentEx1.correctMeaning;
+
+                if (isCorrect) {
+                    btnEl.classList.add('correct-choice');
+                    ex1Streak++;
+                    if (ex1Streak > ex1BestStreak) ex1BestStreak = ex1Streak;
+                    totalScore += 10 + Math.min(ex1Streak - 1, 5) * 2;
+                    updateTotalScore();
+                    const pos = getClickPosition(event);
+                    spawnParticles(pos.x, pos.y, 10);
+                    showToast('✅ Правильно! ' + currentEx1.char + ' = ' + currentEx1.correctMeaning, 'success');
+                } else {
+                    btnEl.classList.add('wrong-choice');
+                    ex1Streak = 0;
+                    // Highlight correct answer
+                    allBtns.forEach(b => {
+                        if (b.textContent === currentEx1.correctMeaning) b.classList.add(
+                            'correct-choice');
+                    });
+                    showToast('❌ Неверно. Правильно: ' + currentEx1.correctMeaning, 'error');
+                }
+                allBtns.forEach(b => b.style.pointerEvents = 'none');
+                updateEx1StreakDisplay();
+                updateEx1Dots();
+                document.getElementById('ex1Next').style.display = 'block';
+            }
+
+            function updateEx1StreakDisplay() {
+                const el = document.getElementById('ex1Streak');
+                if (ex1Streak >= 3) {
+                    el.innerHTML = '<span class="streak-fire">🔥</span><span class="streak-text">Серия: ' + ex1Streak +
+                        ' подряд!</span>';
+                } else if (ex1Streak > 0) {
+                    el.innerHTML = '<span class="streak-text">Серия: ' + ex1Streak + '</span>';
+                } else {
+                    el.innerHTML = '';
+                }
+            }
+
+            function updateEx1Dots() {
+                const container = document.getElementById('ex1Dots');
+                container.innerHTML = '';
+                for (let i = 0; i < QUESTIONS_PER_ROUND; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'progress-dot';
+                    if (i < (ex1QCount % QUESTIONS_PER_ROUND) || (ex1QCount > 0 && ex1QCount % QUESTIONS_PER_ROUND === 0 &&
+                            i < QUESTIONS_PER_ROUND && i < ex1QCount)) {
+                        // Simplify: show dots based on questions answered in this round
+                    }
+                    if (i < (ex1QCount % QUESTIONS_PER_ROUND)) {
+                        dot.classList.add('done');
+                    } else if (i === ex1QCount % QUESTIONS_PER_ROUND && ex1QCount % QUESTIONS_PER_ROUND <
+                        QUESTIONS_PER_ROUND) {
+                        dot.classList.add('active');
+                    }
+                    container.appendChild(dot);
+                }
+                // Reset dot logic: simpler approach
+                const mod = ex1QCount % QUESTIONS_PER_ROUND;
+                container.innerHTML = '';
+                for (let i = 0; i < QUESTIONS_PER_ROUND; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'progress-dot';
+                    if (i < mod) dot.classList.add('done');
+                    if (i === mod && !ex1Locked) dot.classList.add('active');
+                    if (i === mod && ex1Locked && mod < QUESTIONS_PER_ROUND) dot.classList.add('active');
+                    container.appendChild(dot);
+                }
+                if (mod === 0 && ex1QCount > 0 && ex1Locked) {
+                    // Round just completed
+                    container.querySelectorAll('.progress-dot').forEach(d => d.classList.add('done'));
+                }
+            }
+
+            document.getElementById('ex1Next').addEventListener('click', () => {
+                if (ex1QCount % QUESTIONS_PER_ROUND === 0 && ex1QCount > 0) {
+                    // Round complete mini celebration
+                    showToast('🎯 Раунд завершён! Отличная работа!', 'success');
+                }
+                renderEx1();
+                document.getElementById('ex1').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+
+            // ============ EXERCISE 2: CLOCK READING ============
+            const timeExpressions = [
+                { hours: 7, minutes: 0, text: '七点', alt: '七点整' },
+                { hours: 7, minutes: 30, text: '七点半', alt: '七点三十分' },
+                { hours: 7, minutes: 15, text: '七点一刻', alt: '七点十五分' },
+                { hours: 7, minutes: 45, text: '七点三刻', alt: '七点四十五分' },
+                { hours: 8, minutes: 0, text: '八点', alt: '八点整' },
+                { hours: 8, minutes: 30, text: '八点半', alt: '八点三十分' },
+                { hours: 9, minutes: 0, text: '九点', alt: '九点整' },
+                { hours: 9, minutes: 15, text: '九点一刻', alt: '九点十五分' },
+                { hours: 12, minutes: 0, text: '十二点', alt: '十二点整' },
+                { hours: 12, minutes: 30, text: '十二点半', alt: '十二点三十分' },
+                { hours: 3, minutes: 0, text: '三点', alt: '三点整' },
+                { hours: 3, minutes: 45, text: '三点三刻', alt: '三点四十五分' },
+                { hours: 5, minutes: 0, text: '五点', alt: '五点整' },
+                { hours: 5, minutes: 30, text: '五点半', alt: '五点三十分' },
+                { hours: 6, minutes: 0, text: '六点', alt: '六点整' },
+                { hours: 6, minutes: 15, text: '六点一刻', alt: '六点十五分' },
+                { hours: 11, minutes: 0, text: '十一点', alt: '十一点整' },
+                { hours: 11, minutes: 30, text: '十一点半', alt: '十一点三十分' },
+                { hours: 1, minutes: 0, text: '一点', alt: '一点整' },
+                { hours: 1, minutes: 30, text: '一点半', alt: '一点三十分' },
+            ];
+
+            function generateEx2Question() {
+                const correct = timeExpressions[Math.floor(Math.random() * timeExpressions.length)];
+                let distractors = timeExpressions.filter(t => t.text !== correct.text && t.hours !== correct.hours ||
+                    t.minutes !== correct.minutes);
+                distractors = shuffle(distractors).slice(0, 3);
+                const options = shuffle([correct.text, ...distractors.map(d => d.text)]);
+                return { hours: correct.hours, minutes: correct.minutes, correctText: correct.text, options };
+            }
+
+            let currentEx2 = null;
+
+            function renderEx2() {
+                ex2Locked = false;
+                currentEx2 = generateEx2Question();
+                setClockHands('handHour', 'handMinute', currentEx2.hours, currentEx2.minutes);
+                const optsContainer = document.getElementById('ex2Options');
+                optsContainer.innerHTML = '';
+                currentEx2.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.textContent = opt;
+                    btn.addEventListener('click', (e) => handleEx2Answer(opt, btn, e));
+                    optsContainer.appendChild(btn);
+                });
+                document.getElementById('ex2Next').style.display = 'none';
+                document.getElementById('ex2Streak').innerHTML = '';
+                updateEx2Dots();
+            }
+
+            function handleEx2Answer(selected, btnEl, event) {
+                if (ex2Locked) return;
+                ex2Locked = true;
+                ex2QCount++;
+                const allBtns = document.querySelectorAll('#ex2Options .option-btn');
+                const isCorrect = selected === currentEx2.correctText;
+
+                if (isCorrect) {
+                    btnEl.classList.add('correct-choice');
+                    ex2Streak++;
+                    if (ex2Streak > ex2BestStreak) ex2BestStreak = ex2Streak;
+                    totalScore += 10 + Math.min(ex2Streak - 1, 5) * 2;
+                    updateTotalScore();
+                    const pos = getClickPosition(event);
+                    spawnParticles(pos.x, pos.y, 10);
+                    showToast('✅ Отлично! ' + currentEx2.correctText, 'success');
+                } else {
+                    btnEl.classList.add('wrong-choice');
+                    ex2Streak = 0;
+                    allBtns.forEach(b => {
+                        if (b.textContent === currentEx2.correctText) b.classList.add('correct-choice');
+                    });
+                    showToast('❌ Правильный ответ: ' + currentEx2.correctText, 'error');
+                }
+                allBtns.forEach(b => b.style.pointerEvents = 'none');
+                updateEx2StreakDisplay();
+                updateEx2Dots();
+                document.getElementById('ex2Next').style.display = 'block';
+            }
+
+            function updateEx2StreakDisplay() {
+                const el = document.getElementById('ex2Streak');
+                if (ex2Streak >= 3) {
+                    el.innerHTML = '<span class="streak-fire">🔥</span><span class="streak-text">Серия: ' + ex2Streak +
+                        ' подряд!</span>';
+                } else if (ex2Streak > 0) {
+                    el.innerHTML = '<span class="streak-text">Серия: ' + ex2Streak + '</span>';
+                } else {
+                    el.innerHTML = '';
+                }
+            }
+
+            function updateEx2Dots() {
+                const mod = ex2QCount % QUESTIONS_PER_ROUND;
+                const container = document.getElementById('ex2Dots');
+                container.innerHTML = '';
+                for (let i = 0; i < QUESTIONS_PER_ROUND; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'progress-dot';
+                    if (i < mod) dot.classList.add('done');
+                    if (i === mod && !ex2Locked) dot.classList.add('active');
+                    container.appendChild(dot);
+                }
+                if (mod === 0 && ex2QCount > 0 && ex2Locked) {
+                    container.querySelectorAll('.progress-dot').forEach(d => d.classList.add('done'));
+                }
+            }
+
+            document.getElementById('ex2Next').addEventListener('click', () => {
+                if (ex2QCount % QUESTIONS_PER_ROUND === 0 && ex2QCount > 0) {
+                    showToast('🎯 Раунд завершён! Так держать!', 'success');
+                }
+                renderEx2();
+                document.getElementById('ex2').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+
+            // ============ EXERCISE 3: MEAL-TIME MATCHING ============
+            const mealTimeData = [
+                { hours: 7, minutes: 0, meal: '早饭', mealMeaning: 'завтрак', timeDesc: '早上七点' },
+                { hours: 7, minutes: 30, meal: '早饭', mealMeaning: 'завтрак', timeDesc: '早上七点半' },
+                { hours: 8, minutes: 0, meal: '早饭', mealMeaning: 'завтрак', timeDesc: '早上八点' },
+                { hours: 12, minutes: 0, meal: '午饭', mealMeaning: 'обед', timeDesc: '中午十二点' },
+                { hours: 12, minutes: 30, meal: '午饭', mealMeaning: 'обед', timeDesc: '中午十二点半' },
+                { hours: 11, minutes: 30, meal: '午饭', mealMeaning: 'обед', timeDesc: '中午十一点半' },
+                { hours: 18, minutes: 0, meal: '晚饭', mealMeaning: 'ужин', timeDesc: '晚上六点' },
+                { hours: 18, minutes: 30, meal: '晚饭', mealMeaning: 'ужин', timeDesc: '晚上六点半' },
+                { hours: 19, minutes: 0, meal: '晚饭', mealMeaning: 'ужин', timeDesc: '晚上七点' },
+            ];
+            const mealOptions = ['早饭', '午饭', '晚饭'];
+
+            function generateEx3Question() {
+                const correct = mealTimeData[Math.floor(Math.random() * mealTimeData.length)];
+                const distractors = mealOptions.filter(m => m !== correct.meal);
+                const options = shuffle([correct.meal, ...distractors]);
+                return { hours: correct.hours, minutes: correct.minutes, correctMeal: correct.meal,
+                    correctMealMeaning: correct.mealMeaning, timeDesc: correct.timeDesc, options };
+            }
+
+            let currentEx3 = null;
+
+            function renderEx3() {
+                ex3Locked = false;
+                currentEx3 = generateEx3Question();
+                setClockHands('handHour2', 'handMinute2', currentEx3.hours, currentEx3.minutes);
+                document.getElementById('ex3Prompt').textContent =
+                    'Посмотри на время (' + currentEx3.timeDesc + '). Какой приём пищи обычно бывает в это время?';
+                const optsContainer = document.getElementById('ex3Options');
+                optsContainer.innerHTML = '';
+                currentEx3.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    const mealInfo = {
+                        '早饭': '🌅 завтрак',
+                        '午饭': '☀️ обед',
+                        '晚饭': '🌙 ужин'
+                    };
+                    btn.textContent = opt + ' ' + (mealInfo[opt] || '');
+                    btn.addEventListener('click', (e) => handleEx3Answer(opt, btn, e));
+                    optsContainer.appendChild(btn);
+                });
+                document.getElementById('ex3Next').style.display = 'none';
+                document.getElementById('ex3Streak').innerHTML = '';
+                updateEx3Dots();
+            }
+
+            function handleEx3Answer(selected, btnEl, event) {
+                if (ex3Locked) return;
+                ex3Locked = true;
+                ex3QCount++;
+                const allBtns = document.querySelectorAll('#ex3Options .option-btn');
+                const isCorrect = selected === currentEx3.correctMeal;
+
+                if (isCorrect) {
+                    btnEl.classList.add('correct-choice');
+                    ex3Streak++;
+                    if (ex3Streak > ex3BestStreak) ex3BestStreak = ex3Streak;
+                    totalScore += 10 + Math.min(ex3Streak - 1, 5) * 2;
+                    updateTotalScore();
+                    const pos = getClickPosition(event);
+                    spawnParticles(pos.x, pos.y, 10);
+                    showToast('✅ Верно! ' + currentEx3.correctMeal + ' — ' + currentEx3.correctMealMeaning,
+                    'success');
+                } else {
+                    btnEl.classList.add('wrong-choice');
+                    ex3Streak = 0;
+                    allBtns.forEach(b => {
+                        if (b.textContent.startsWith(currentEx3.correctMeal)) b.classList.add(
+                            'correct-choice');
+                    });
+                    showToast('❌ Правильно: ' + currentEx3.correctMeal + ' (' + currentEx3.correctMealMeaning + ')',
+                        'error');
+                }
+                allBtns.forEach(b => b.style.pointerEvents = 'none');
+                updateEx3StreakDisplay();
+                updateEx3Dots();
+                document.getElementById('ex3Next').style.display = 'block';
+            }
+
+            function updateEx3StreakDisplay() {
+                const el = document.getElementById('ex3Streak');
+                if (ex3Streak >= 3) {
+                    el.innerHTML = '<span class="streak-fire">🔥</span><span class="streak-text">Серия: ' + ex3Streak +
+                        ' подряд!</span>';
+                } else if (ex3Streak > 0) {
+                    el.innerHTML = '<span class="streak-text">Серия: ' + ex3Streak + '</span>';
+                } else {
+                    el.innerHTML = '';
+                }
+            }
+
+            function updateEx3Dots() {
+                const mod = ex3QCount % QUESTIONS_PER_ROUND;
+                const container = document.getElementById('ex3Dots');
+                container.innerHTML = '';
+                for (let i = 0; i < QUESTIONS_PER_ROUND; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'progress-dot';
+                    if (i < mod) dot.classList.add('done');
+                    if (i === mod && !ex3Locked) dot.classList.add('active');
+                    container.appendChild(dot);
+                }
+                if (mod === 0 && ex3QCount > 0 && ex3Locked) {
+                    container.querySelectorAll('.progress-dot').forEach(d => d.classList.add('done'));
+                }
+            }
+
+            document.getElementById('ex3Next').addEventListener('click', () => {
+                if (ex3QCount % QUESTIONS_PER_ROUND === 0 && ex3QCount > 0) {
+                    showToast('🎯 Раунд завершён! Превосходно!', 'success');
+                }
+                renderEx3();
+                document.getElementById('ex3').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+
+            // ============ NAV LINK ACTIVE STATE ============
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = [
+                { id: 'vocab', linkIndex: 0 },
+                { id: 'ex1', linkIndex: 1 },
+                { id: 'ex2', linkIndex: 2 },
+                { id: 'ex3', linkIndex: 3 },
+            ];
+
+            function updateActiveNav() {
+                let currentSection = '';
+                sections.forEach(s => {
+                    const el = document.getElementById(s.id);
+                    if (el) {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top <= 200) currentSection = s.id;
+                    }
+                });
+                navLinks.forEach((link, i) => {
+                    link.classList.remove('active');
+                    if (sections[i] && sections[i].id === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav);
+
+            // ============ INIT ============
+            function init() {
+                buildVocabCards();
+                buildClockFace('clockMarkers', 'clockNumbers');
+                buildClockFace('clockMarkers2', 'clockNumbers2');
+                renderEx1();
+                renderEx2();
+                renderEx3();
+                updateTotalScore();
+                updateActiveNav();
+                // Set initial clock hands
+                setClockHands('handHour', 'handMinute', 7, 0);
+                setClockHands('handHour2', 'handMinute2', 7, 0);
+            }
+
+            init();
+
+            console.log('🥢 Chinese Meals & Time — сайт готов!');
+            console.log('📚 Упражнения: Иероглифы | Часы | Приёмы пищи');
+            console.log('🚀 Разместите index.html на GitHub Pages — всё работает из коробки!');
+        })();
+    </script>
+</body>
+</html>
